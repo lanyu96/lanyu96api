@@ -16,12 +16,12 @@ public class AppUpdateController {
 
     @RequestMapping(value="/app_update_zhou")
     @ResponseBody
-    public String getAppUpdateInfo(int isAble) {
+    public AppUpdateBean getAppUpdateInfo(int isAble) {
         AppUpdateBean appUpdateInfo = updateMapper.getAppUpdateInfo(isAble);
         if (appUpdateInfo != null) {
-            return appUpdateInfo.getAddress();
+            return appUpdateInfo;
         } else {
-            return "";
+            return new AppUpdateBean();
         }
 
     }
